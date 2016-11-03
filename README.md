@@ -44,6 +44,33 @@ import { constants } from 'rs-carousel';
 console.log(constants);
 ```
 
+```javascript
+{
+    directions: {
+        left: 2,
+        right: 4,
+        up: 8,
+        down: 16,
+        vertical: 24,
+        horizontal: 6
+    },
+    animationsNames: {
+        in: {
+            "2": "carouselSlideLeftIn",
+            "4": "carouselSlideRightIn",
+            "8": "carouselSlideUpIn",
+            "16": "carouselSlideDownIn"
+        },
+        out: {
+            "2": "carouselSlideLeftOut",
+            "4": "carouselSlideRightOut",
+            "8": "carouselSlideUpOut",
+            "16": "carouselSlideDownOut"
+        }
+    }
+}
+```
+
 ## Build (for developers)
 
 ```
