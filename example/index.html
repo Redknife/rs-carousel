@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>RS Slider</title>
+        <link rel="stylesheet" href="styles/sanitize.css">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+
+        <div class="m-carousel js-rs-carousel">
+            <div class="m-carousel__slide js-rs-carousel__slide">
+                <div class="m-carousel__slide_text">1</div>
+            </div>
+            <div class="m-carousel__slide js-rs-carousel__slide">
+                <div class="m-carousel__slide_text">2</div>
+            </div>
+            <div class="m-carousel__slide js-rs-carousel__slide">
+                <div class="m-carousel__slide_text">3</div>
+            </div>
+            <div class="m-carousel__slide js-rs-carousel__slide">
+                <div class="m-carousel__slide_text">4</div>
+            </div>
+            <div class="m-carousel__slide js-rs-carousel__slide">
+                <div class="m-carousel__slide_text">5</div>
+            </div>
+        </div>
+
+        <script src="jquery-3.1.1.min.js"></script>
+        <script src="velocity-1.3.1.min.js"></script>
+        <script src="velocity-1.3.1.ui.min.js"></script>
+        <script src="../lib/rs-carousel.js"></script>
+        <script>
+            $(function() {
+                const $element = $('.js-rs-carousel');
+                const carousel = new rsCarousel.RSBaseCarousel($element);
+            });
+        </script>
+    </body>
+</html>

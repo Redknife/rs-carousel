@@ -1,0 +1,57 @@
+{
+  "name": "rs-carousel",
+  "version": "1.0.0",
+  "description": "Customizable basic fullpage carousel",
+  "author": "Rogachev Sergey <redknife183@gmail.com> (https://github.com/Redknife)",
+  "license": "MIT",
+  "keywords": [
+    "carousel",
+    "slider",
+    "fullpage"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Redknife/rs-carousel.git"
+  },
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:dev": "NODE_ENV=dev webpack --config webpack/webpack.dev.js",
+    "build:prod": "NODE_ENV=production webpack --config webpack/webpack.prod.js --optimize-minimize",
+    "start": "NODE_ENV=dev webpack --config webpack/webpack.dev.js --watch"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "jquery": true
+    },
+    "rules": {
+      "max-len": 0,
+      "no-underscore-dangle": 0,
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true,
+          "optionalDependencies": true,
+          "peerDependencies": true
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "babel-core": "6.18.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "2.17.5",
+    "browser-sync-webpack-plugin": "1.1.3",
+    "webpack": "2.1.0-beta.25"
+  },
+  "dependencies": {
+    "hammerjs": "2.0.8"
+  }
+}

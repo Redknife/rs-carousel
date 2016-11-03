@@ -1,0 +1,10 @@
+# IDE
+.idea
+
+# OS X
+*.DS_Store
+._*
+*~
+~*
+
+node_modules/
