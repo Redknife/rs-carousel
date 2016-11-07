@@ -12,8 +12,14 @@ Customizable basic fullpage carousel
 - Progressive background image loading with blur (like medium.com)
 
 ## Example
-[See example dir](example/)
 
+[ES6 basic](https://redknife.github.io/rs-carousel/examples/es6_basic) - [demo](https://redknife.github.io/rs-carousel/examples/es6_basic/demo.html)
+
+[ES6 horizontal](https://redknife.github.io/rs-carousel/examples/es6_horizontal) - [demo](https://redknife.github.io/rs-carousel/examples/es6_horizontal/demo.html)
+
+[ES6 custom controls](https://redknife.github.io/rs-carousel/examples/es6_controls) - [demo](https://redknife.github.io/rs-carousel/examples/es6_controls/demo.html)
+
+[Or see example dir](example/)
 
 ## Installation
 
