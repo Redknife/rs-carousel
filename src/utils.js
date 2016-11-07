@@ -50,3 +50,15 @@ export const arrayLast = (array, n = 0) => {
   const length = array == null ? 0 : array.length;
   return array.slice(Math.max(length - n, 1));
 };
+
+export const loadImage = url => new Promise((resolve, reject) => {
+  const img = new Image();
+
+  img.onload = () => {
+    resolve(img);
+  };
+  img.onerror = () => {
+    reject(new Error(`Cannot load image ${url}`));
+  };
+  img.src = url;
+});

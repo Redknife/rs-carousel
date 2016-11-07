@@ -2,10 +2,12 @@
 /* eslint-disable no-bitwise */
 /* eslint-disable new-cap */
 import Hammer from 'hammerjs';
+import StackBlur from 'stackblur-canvas';
+
 import { directions, animationsNames } from './constants';
 import defaultSettings from './defaultSettings';
 import OptimizedMousewheelHandler from './optimizedMousewheelHandler';
-import { isFunction, inRange, arrayEvery } from './utils';
+import { isFunction, inRange, arrayEvery, loadImage } from './utils';
 
 export default class RSBaseCarousel {
   constructor(element, customSettings = {}) {
@@ -13,22 +15,44 @@ export default class RSBaseCarousel {
       throw new Error('element is required');
     }
 
-    this.settings = Object.assign({}, defaultSettings, customSettings);
-    this.$container = $(element);
-    this.currentIndex = 0;
+    const settings = Object.assign({}, defaultSettings, customSettings);
+    this.settings = settings;
 
-    const $slides = this.$container.find(this.settings.slideSel);
+    const $container = $(element);
+    $container.css({
+      position: 'relative',
+    });
+    this.$container = $container;
+
+    const slideBgCss = {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+    };
+    const slideBgCanvasCss = Object.assign({}, slideBgCss, {
+      opacity: 0,
+    });
+    const slideBgImgCss = Object.assign({}, slideBgCanvasCss, settings.slideBgImgStyles);
+
+    this.opts = {
+      slideBgCss,
+      slideBgCanvasCss,
+      slideBgImgCss,
+      slideBgFadeOpts: {
+        duration: settings.slideBgImgFadeDuration,
+      },
+    };
+
+    const currentIndex = 0;
+    this.currentIndex = currentIndex;
+
+    const $slides = $container.find(this.settings.slideSel);
     this.slidesArr = Array.from($slides).map((el, i) => {
-      const active = i === this.currentIndex;
+      const active = i === currentIndex;
       const $el = $(el);
-      $el.css({
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        display: active ? 'block' : 'none',
-        transform: 'translateZ(0)',
-        zIndex: this.settings.zIndex,
-      });
+      this.prepareSlide($el, active);
       return {
         $el,
       };
@@ -37,15 +61,73 @@ export default class RSBaseCarousel {
     this.mwHandler = new OptimizedMousewheelHandler(this.$container);
     this.mwHandler.addCallback(this.mouseWheelHandler.bind(this));
 
-    this.locked = false;
-
     // callbacks
     this.cb = {
       before: [],
       after: [],
     };
+
+    this.locked = false;
+
     this.registerAnimations();
     this.initEventHandlers();
+  }
+
+  prepareSlide($el, active = false) {
+    $el.css({
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      display: active ? 'block' : 'none',
+      transform: 'translateZ(0)',
+      zIndex: this.settings.slideZIndex,
+    });
+    this.prepareSlideBg($el);
+  }
+
+  prepareSlideBg($el) {
+    const $bg = $el.children(this.settings.slideBgSel);
+    const smallImageUrl = $bg.data('imageSmall');
+    const imageUrl = $bg.data('image');
+    if (!smallImageUrl && !imageUrl) return;
+
+    $bg.addClass(this.settings.slideBgImgLoadingClass);
+    $bg.css(this.opts.slideBgCss);
+
+    const $canvas = $(`<canvas class="${this.settings.slideBgCanvasClass}"></canvas>`);
+    $canvas.css(this.opts.slideBgCanvasCss);
+    $bg.append($canvas);
+
+    const $bgImageEl = $(`<div class="${this.settings.slideBgImgClass}"></div>`);
+    $bgImageEl.css(this.opts.slideBgImgCss);
+    $bg.append($bgImageEl);
+
+    if (smallImageUrl) {
+      loadImage(smallImageUrl).then((img) => {
+        const canvas = $canvas.get(0);
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(
+          img, 0, 0, img.naturalWidth, img.naturalHeight,
+          0, 0, canvas.width, canvas.height
+        );
+        StackBlur.canvasRGB(
+          canvas, 0, 0, canvas.width, canvas.height, this.settings.blurRadius);
+        $canvas.velocity('fadeIn', this.opts.slideBgFadeOpts);
+      });
+    }
+
+    loadImage(imageUrl).then((img) => {
+      $bgImageEl.css({
+        backgroundImage: `url(${img.src})`,
+      });
+      $.Velocity($bgImageEl, 'fadeIn', this.opts.slideBgFadeOpts)
+        .then(() => {
+          $canvas.remove();
+          $bg
+            .removeClass(this.settings.slideBgImgLoadingClass)
+            .addClass(this.settings.slideBgImgLoadedClass);
+        });
+    });
   }
 
   get currentSlide() {
@@ -79,7 +161,7 @@ export default class RSBaseCarousel {
     this.mc.get('swipe').set({
       enable: true,
       direction: this.settings.direction,
-      threshold: 30,
+      threshold: this.settings.swipeThreshold,
     });
     this.mc.on('swipeleft swiperight swipeup swipedown', this.swipeHandler.bind(this));
   }

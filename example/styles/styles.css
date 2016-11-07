@@ -14,31 +14,7 @@
             background-size: cover;
     -webkit-will-change: transform;
             will-change: transform;
-}
-
-.m-carousel__slide:nth-child(1) {
-    background-image: url(../img/1.jpg);
-    background-color: indianred;
-}
-
-.m-carousel__slide:nth-child(2) {
-    background-image: url(../img/2.jpg);
-    background-color: mediumaquamarine;
-}
-
-.m-carousel__slide:nth-child(3) {
-    background-image: url(../img/3.jpg);
-    background-color: darkblue;
-}
-
-.m-carousel__slide:nth-child(4) {
-    background-image: url(../img/4.jpg);
-    background-color: yellow;
-}
-
-.m-carousel__slide:nth-child(5) {
-    background-image: url(../img/5.jpg);
-    background-color: mediumvioletred;
+    background-color: #333;
 }
 
 .m-carousel__slide_text {
