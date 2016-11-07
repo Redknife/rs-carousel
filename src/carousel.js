@@ -122,10 +122,10 @@ export default class RSBaseCarousel {
       });
       $.Velocity($bgImageEl, 'fadeIn', this.opts.slideBgFadeOpts)
         .then(() => {
-          $canvas.remove();
           $bg
             .removeClass(this.settings.slideBgImgLoadingClass)
             .addClass(this.settings.slideBgImgLoadedClass);
+          $canvas.remove();
         });
     });
   }
@@ -221,7 +221,17 @@ export default class RSBaseCarousel {
     this.lock();
 
     if (this.direction === undefined) {
-      const newIndexGtCurrent = nextIndex > this.currentIndex;
+      const maxIndex = this.slidesArr.length - 1;
+      let newIndexGtCurrent = nextIndex > this.currentIndex;
+
+      if (this.currentIndex === maxIndex && nextIndex === 0) {
+        newIndexGtCurrent = true;
+      }
+
+      if (this.currentIndex === 0 && nextIndex === maxIndex) {
+        newIndexGtCurrent = false;
+      }
+
       // eslint-disable-next-line default-case
       switch (this.settings.direction) {
         case directions.vertical:
