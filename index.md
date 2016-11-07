@@ -46,7 +46,9 @@ const carousel = new RSBaseCarousel($container, opts);
 ```
 
 #### Lazy loading background images
+
 Use attributes for urls of images
+
 ```html
 <div class="m-carousel__slide js-rs-carousel__slide">
     <div class="js-rs-carousel__slide__bg" data-image-small="img_small.jpg" data-image="img_large.jpg"></div>
@@ -58,21 +60,21 @@ Use attributes for urls of images
 
 | Option | Type | Default | Description |
 | ------ | ---- | ------- | ----------- |
-| slideSel | string | '.js-rs-carousel__slide' | Carousel elements selector |
-| slideBgSel | string | '.js-rs-carousel__slide__bg' | Slide background selector |
-| slideBgCanvasClass | string | 'bg-canvas' | Class for slide background canvas (used for blur small background image) |
-| slideBgImgClass | string | 'bg-img' | Class for slide background element (used for full background image) |
-| slideBgImgStyles | object | { backgroundPosition: 'center center', backgroundSize: 'cover' } | Css for background element |
-| slideBgImgLoadingClass | string | 'bg-img-loading' | Class form slide background element while loading full image |
-| slideBgImgLoadedClass | string | 'bg-img-loaded' | Class for slide background element when loaded full image |
+| slideSel | string | `'.js-rs-carousel__slide'` | Carousel elements selector |
+| slideBgSel | string | `'.js-rs-carousel__slide__bg'` | Slide background selector |
+| slideBgCanvasClass | string | `'bg-canvas'` | Class for slide background canvas (used for blur small background image) |
+| slideBgImgClass | string | `'bg-img'` | Class for slide background element (used for full background image) |
+| slideBgImgStyles | object | `{ backgroundPosition: 'center center', backgroundSize: 'cover' }` | Css for background element |
+| slideBgImgLoadingClass | string | `'bg-img-loading'` | Class form slide background element while loading full image |
+| slideBgImgLoadedClass | string | `'bg-img-loaded'` | Class for slide background element when loaded full image |
 | slideBgImgFadeDuration | number | 500 | Duration of animation backgrounds |
 | blurRadius | number | 30 | Used for blur small background image |
 | slideZIndex | number | 1000 | Carousel elements z-index |
 | swipeThreshold | number | 30 | Minimal distance required before slides change |
 | duration | number | 1000 | Animation duration |
 | direction | number | 24 | Carousel direction *(see constants)* |
-| easing | string | 'easeInOutCubic' | Animation easing *([see velocityjs easings](http://velocityjs.org/#easing))* |
-| infinite | boolean | true | Infinite looping |
+| easing | string | `'easeInOutCubic'` | Animation easing *([see velocityjs easings](http://velocityjs.org/#easing))* |
+| infinite | boolean | `true` | Infinite looping |
 
 ## Constants
 
@@ -114,7 +116,6 @@ console.log(constants);
 ```
 npm run build
 ```
-
 
 ## License
 
