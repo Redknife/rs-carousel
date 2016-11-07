@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/github/license/Redknife/rs-carousel.svg)](https://www.npmjs.com/package/rs-carousel)
 [![GitHub version](https://img.shields.io/github/tag/Redknife/rs-carousel.svg)](https://github.com/Redknife/rs-carousel)
 [![NPM version](https://img.shields.io/npm/v/rs-carousel.svg)](https://www.npmjs.com/package/rs-carousel)
 [![Downloads](https://img.shields.io/npm/dt/rs-carousel.svg)](https://www.npmjs.com/package/rs-carousel)
