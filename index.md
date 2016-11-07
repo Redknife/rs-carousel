@@ -7,9 +7,6 @@ title: {{ site.name }}
 [![NPM version](https://img.shields.io/npm/v/rs-carousel.svg)](https://www.npmjs.com/package/rs-carousel)
 [![Downloads](https://img.shields.io/npm/dt/rs-carousel.svg)](https://www.npmjs.com/package/rs-carousel)
 
-# RS Carousel
-
-Customizable basic fullpage carousel
 
 ## Features
 
