@@ -1,0 +1,17 @@
+# Setup
+title: RS Carousel
+tagline: Customizable basic fullpage carousel
+baseurl: ""
+
+# About/contact
+author:
+  name: Rogachev Sergey
+  email: redknife183@gmail.com
+  url: https://github.com/Redknife
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown

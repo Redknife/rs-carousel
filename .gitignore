@@ -1,0 +1,14 @@
+# IDE
+.idea
+
+# OS X
+*.DS_Store
+._*
+*~
+~*
+
+node_modules/
+_site
+.bundle
+.sass-cache
+Gemfile.lock
