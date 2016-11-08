@@ -104,6 +104,39 @@ console.log(constants);
 }
 ```
 
+
+## Api
+
+### Methods and props
+
+Methods and props are called on carousel instances
+
+```javascript
+const carousel = new RSBaseCarousel($container, opts);
+
+carousel.goTo(2); // Method
+carousel.currentSlide; // Prop
+```
+
+| Method | Argument | Description |
+| ------ | -------- | ----------- |
+| goTo | index : number | Goes to slide by index |
+| next | | Goes to next slide |
+| prev | | Goes to next slide |
+| addBeforeCb | fn : function | Add before slide change callback  |
+| addAfterCb | fn : function | Add after slide change callback |
+| lock | | Lock carousel |
+| unlock | | Unlock carousel |
+
+| Prop | Description |
+| ---- | ----------- |
+| currentSlide | Current slide |
+| nextIndex | Next slide index |
+| prevIndex | Prev slide index |
+| $container | Constainer of carousel instance |
+| settings | Carousel settings of current instance |
+
+
 ## Build (for developers)
 
 ```
