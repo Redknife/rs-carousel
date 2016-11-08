@@ -624,7 +624,8 @@ a {
     overflow: auto;
     word-break: normal;
     word-break: keep-all;
-    -webkit-overflow-scrolling: touch; }
+    -webkit-overflow-scrolling: touch;
+    margin: 15px 0; }
     .main-content table th {
       font-weight: bold; }
     .main-content table th,
