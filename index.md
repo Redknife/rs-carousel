@@ -132,6 +132,7 @@ carousel.currentSlide; // Prop
 | lock | | Lock carousel |
 | unlock | | Unlock carousel |
 
+
 | Prop | Description |
 | ---- | ----------- |
 | currentSlide | Current slide |
