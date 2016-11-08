@@ -1,8 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 
-export const NAN = 0 / 0;
-
 export const isNumber = n => typeof n === 'number';
 
 export const isFunction = value => typeof value === 'function';
@@ -43,7 +41,7 @@ export const arraySum = (array) => {
 
 export const arrayMean = (array) => {
   const length = array == null ? 0 : array.length;
-  return length ? (arraySum(array) / length) : NAN;
+  return length ? (arraySum(array) / length) : NaN;
 };
 
 export const arrayLast = (array, n = 0) => {
