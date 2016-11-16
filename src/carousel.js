@@ -291,12 +291,7 @@ export default class RSBaseCarousel {
   registerAnimations() {
     const easing = this.settings.easing;
 
-    this.registerAnimation(
-      animationsNames.out[directions.up],
-      [
-        [{ translateY: ['-100%', 0], translateZ: 0 }, 1, { easing }],
-      ]
-    );
+    // Out
     this.registerAnimation(
       animationsNames.out[directions.up],
       [
@@ -325,6 +320,7 @@ export default class RSBaseCarousel {
       ]
     );
 
+    // In
     this.registerAnimation(
       animationsNames.in[directions.up],
       [
