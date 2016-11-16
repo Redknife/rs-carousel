@@ -8,6 +8,7 @@ module.exports = {
     'es6_basic/bundle': path.join(cwd, 'es6_basic/app.js'),
     'es6_horizontal/bundle': path.join(cwd, 'es6_horizontal/app.js'),
     'es6_controls/bundle': path.join(cwd, 'es6_controls/app.js'),
+    'es6_custom_effects/bundle': path.join(cwd, 'es6_custom_effects/app.js'),
   },
 
   output: {

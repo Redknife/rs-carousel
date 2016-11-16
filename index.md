@@ -22,6 +22,8 @@ title: {{ site.name }}
 
 [ES6 custom controls](examples/es6_controls) - [demo](examples/es6_controls/demo.html)
 
+[ES6 custom effects](examples/es6_custom_effects) - [demo](examples/es6_custom_effects/demo.html)
+
 
 ## Installation
 
